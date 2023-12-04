@@ -705,3 +705,7 @@ var produtosPizzaria ={
         }
     ]
 }
+module.exports = {
+    usuariosPizzaria,
+    categoriasPizzaria
+}
