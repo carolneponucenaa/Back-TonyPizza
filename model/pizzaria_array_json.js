@@ -15,21 +15,38 @@ const getClientes  = () =>{
 }
 // console.log(getClientes())
 
-const getCategorias = () =>{
-
+const getCategorias = () => {
     let categorias = tony_pizzaria.categoriasPizzaria.elementos
     let json = {}
     let array = []
     categorias.forEach((categoria) => {
-
-        let json = {
+        let objCategoria = {
             nome: categoria.nome
         }
-        array.push(json)
+        array.push(objCategoria)
     })
     json.categorias = array
-    console.log(json)
-    // return clientes
+    return json
 }
 
-getCategorias()
+const getProdutos = () => {
+    let produtos = tony_pizzaria.produtosPizzaria.elementos
+    let json = {}
+    let array = []
+    produtos.forEach((produto) => {
+        let objProduto = {
+            nome: produto.nome,
+            valor: produto.valor
+        }
+        array.push(objProduto)
+    })
+    json.produtos = array
+    return json
+}
+
+
+module.exports = {
+    getClientes
+    ,getCategorias,
+    getProdutos
+}

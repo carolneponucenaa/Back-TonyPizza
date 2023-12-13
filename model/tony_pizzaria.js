@@ -707,5 +707,6 @@ var produtosPizzaria ={
 }
 module.exports = {
     usuariosPizzaria,
-    categoriasPizzaria
+    categoriasPizzaria,
+    produtosPizzaria
 }
