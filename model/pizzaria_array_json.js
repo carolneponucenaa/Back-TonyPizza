@@ -7,27 +7,47 @@
 var tony_pizzaria = require('./tony_pizzaria')
 
 //Função: Visualizar as informações dos clientes
-const getClientes  = () =>{
+const getClientes = () => {
 
-    let clientes = tony_pizzaria.usuariosPizzaria.elementos
+        let clientes = tony_pizzaria.usuariosPizzaria.elementos
 
-    return clientes
-}
-// console.log(getClientes())
+        return clientes
+    }
+    // console.log(getClientes())
+
+//const getCategorias = () => {
+//  let categorias = tony_pizzaria.categoriasPizzaria.elementos
+//let json = {}
+//let array = []
+//categorias.forEach((categoria) => {
+//  let objCategoria = {
+//    nome: categoria.nome
+// }
+//array.push(objCategoria)
+//})
+//json.categorias = array
+//return json
+//}
+
 
 const getCategorias = () => {
     let categorias = tony_pizzaria.categoriasPizzaria.elementos
-    let json = {}
-    let array = []
+    let categoriasArray = []
+
     categorias.forEach((categoria) => {
-        let objCategoria = {
-            nome: categoria.nome
+
+        let categoriaInfo = {
+            nome: categoria.nome,
         }
-        array.push(objCategoria)
+
+        categoriasArray.push(categoriaInfo)
+
     })
-    json.categorias = array
-    return json
+
+    let categoriasJSON = { categoriasArray }
+    return categoriasJSON
 }
+console.log(getCategorias())
 
 const getProdutos = () => {
     let produtos = tony_pizzaria.produtosPizzaria.elementos
@@ -46,7 +66,7 @@ const getProdutos = () => {
 
 
 module.exports = {
-    getClientes
-    ,getCategorias,
+    getClientes,
+    getCategorias,
     getProdutos
 }

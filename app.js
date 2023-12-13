@@ -15,29 +15,36 @@ app.use((request, response, next) => {
 
 //1
 
-app.get('/usuarios/', cors(), async (request, response, next) => {
+app.get('/usuarios/', cors(), async(request, response, next) => {
 
     response.json(funcoes.getClientes())
     response.status(200)
-    
+
 })
 
 //2
-app.get('/categoria/', cors(), async (request, response, next) => {
+app.get('/categoria', cors(), async(request, response, next) => {
 
-    response.json(funcoes.getCategorias())
+
+    let categoria = require('./model/pizzaria_array_json')
+    let categorias = categoria.getCategorias()
+
+    response.json(categorias)
     response.status(200)
-    
+
 })
 
 //3
-app.get('/produtos/', cors(), async (request, response, next) => {
+app.get('/produtos', cors(), async(request, response, next) => {
 
-    response.json(funcoes.getProdutos())
+    let produto = require('./model/pizzaria_array_json')
+    let produtos = produto.getProdutos();
+
+    response.json(produtos)
     response.status(200)
-    
+
 })
 
-app.listen(8080, function(){
+app.listen(8080, function() {
     console.log('API funcionando e aguardando requisições')
 })
